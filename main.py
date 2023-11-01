@@ -1,11 +1,6 @@
 import pygame as pg
-
-FPS = 10
-WINDOW_SIZE = (640, 480)
-BACKGROUND = (150, 90, 30)
-BLACK = (0, 0, 0)
-WHITE = (255, 255, 255)
-IS_RUN = True
+from config import *
+from CityGrid import CityGrid
 
 pg.init()
 clock = pg.time.Clock()
@@ -13,13 +8,16 @@ screen = pg.display.set_mode(WINDOW_SIZE)
 screen.fill(BACKGROUND)
 
 
+city_grid = CityGrid(screen, CELL_QTY, CELL_SIZE, NUMS_BANNED_CELL)
+city_grid.draw()
+city_grid.draw_towers()
+print(city_grid.percentage_coverage)
+pg.display.update()
+
 while IS_RUN:
     for event in pg.event.get():
         if event.type == pg.QUIT:
             pg.quit()
             IS_RUN = False
-    pg.display.update()
+
     clock.tick(FPS)
-
-
-
