@@ -8,10 +8,10 @@ screen = pg.display.set_mode(WINDOW_SIZE)
 screen.fill(BACKGROUND)
 
 
-city_grid = CityGrid(screen, CELL_QTY, CELL_SIZE, NUMS_BANNED_CELL)
+city_grid = CityGrid(screen, CELL_QTY_X, CELL_QTY_Y, CELL_SIZE, NUMS_BANNED_CELL)
 city_grid.draw()
-city_grid.draw_towers()
-print(city_grid.percentage_coverage)
+# city_grid.draw_towers()
+# print(city_grid.percentage_coverage)
 pg.display.update()
 
 while IS_RUN:

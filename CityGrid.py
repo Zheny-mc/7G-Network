@@ -6,12 +6,13 @@ from config import *
 
 
 class CityGrid:
-    def __init__(self, screen=None, size=None, size_cell=None, nums_banned_cell=0) -> None:
+    def __init__(self, screen=None, size_x=None, size_y=None, size_cell=None, nums_banned_cell=0) -> None:
         self.__size_cell = size_cell
         self.__nums_banned_cell = nums_banned_cell
-        self.__size = size
+        self.__size_x = size_x
+        self.__size_y = size_y
         self.__screen = screen
-        self.__field = {(x, y): Cell(x, y, self.__size_cell) for x in range(size) for y in range(size)}
+        self.__field = {(x, y): Cell(x, y, self.__size_cell) for x in range(size_x) for y in range(size_y)}
         self.__set_block_cells = self.__get_set_block_cells()
         self.__set_position_towers = self.__get_set_position_towers()
         self.__set_covered_cell = set()
@@ -54,7 +55,7 @@ class CityGrid:
     def draw_towers(self):
         """нарисовать башню"""
         for tower in self.__set_position_towers:
-            self.draw_field_action_tower(tower, 2)
+            self.draw_field_action_tower(tower, 1)
             self.__field[tower].draw(self.__screen, RED)
 
     def draw(self):
