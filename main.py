@@ -18,7 +18,8 @@ while IS_RUN:
             pg.quit()
             IS_RUN = False
 
-    logic.optimize_towers()
-    city_grid.draw(logic.field)
-    pg.display.update()
+    if logic.optimize_towers():
+        city_grid.draw(logic.field)
+        pg.display.update()
+
     clock.tick(FPS)

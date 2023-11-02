@@ -64,10 +64,11 @@ class Logic:
     def optimize_towers(self):
         """Алгоритм оптимизации размещения башен"""
         if self.is_end():
-            return
+            return False
 
         cell = self.__get_possible_moves().pop()
         self.make_move(cell, self.__radius)
+        return True
 
 
 
