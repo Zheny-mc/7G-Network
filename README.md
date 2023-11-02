@@ -13,5 +13,8 @@ PROCENT_CELL_BANNED = 30
 ### Радиус действия башни
 RADIUS = 2
 
+![2023-11-02_12-52-11](https://github.com/Zheny-mc/7G-Network/assets/68734109/b589fcd3-c53b-410e-bbb2-244720dd9a11)
+
+
 ![2023-11-02_12-51-19](https://github.com/Zheny-mc/7G-Network/assets/68734109/f9d5b172-d10e-4e3b-8f30-b1aa90b389fa)
 
