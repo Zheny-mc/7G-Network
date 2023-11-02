@@ -1,4 +1,6 @@
 import pygame as pg
+
+from Logic import Logic
 from config import *
 from CityGrid import CityGrid
 
@@ -8,11 +10,16 @@ screen = pg.display.set_mode(WINDOW_SIZE)
 screen.fill(BACKGROUND)
 
 
-city_grid = CityGrid(screen, CELL_QTY_X, CELL_QTY_Y, CELL_SIZE, NUMS_BANNED_CELL)
-city_grid.draw()
-# city_grid.draw_towers()
-# print(city_grid.percentage_coverage)
+logic = Logic(CELL_QTY_X, CELL_QTY_Y, 0)
+city_grid = CityGrid(screen)
+logic.make_best_move()
+city_grid.draw(logic.field)
 pg.display.update()
+
+logic.make_best_move()
+city_grid.draw(logic.field)
+pg.display.update()
+
 
 while IS_RUN:
     for event in pg.event.get():

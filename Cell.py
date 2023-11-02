@@ -1,9 +1,9 @@
 import pygame as pg
-from config import MARGIN
+from config import MARGIN, CELL_SIZE
 
 
 class Cell:
-    def __init__(self, x: int, y: int, size: int) -> None:
+    def __init__(self, x: int, y: int, size: int=CELL_SIZE) -> None:
         self.__x = x
         self.__y = y
         self.__size = size
