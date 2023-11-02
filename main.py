@@ -9,17 +9,8 @@ clock = pg.time.Clock()
 screen = pg.display.set_mode(WINDOW_SIZE)
 screen.fill(BACKGROUND)
 
-
-logic = Logic(CELL_QTY_X, CELL_QTY_Y, 0)
+logic = Logic(CELL_QTY_X, CELL_QTY_Y, RADIUS, NUMS_BANNED_CELL)
 city_grid = CityGrid(screen)
-logic.make_best_move()
-city_grid.draw(logic.field)
-pg.display.update()
-
-logic.make_best_move()
-city_grid.draw(logic.field)
-pg.display.update()
-
 
 while IS_RUN:
     for event in pg.event.get():
@@ -27,4 +18,7 @@ while IS_RUN:
             pg.quit()
             IS_RUN = False
 
+    logic.optimize_towers()
+    city_grid.draw(logic.field)
+    pg.display.update()
     clock.tick(FPS)
